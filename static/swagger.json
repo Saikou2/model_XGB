@@ -1,0 +1,121 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API de prédiction",
+    "description": "API pour faire des prédictions sur les données envoyées",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/predict": {
+      "post": {
+        "summary": "Faire une prédiction sur des données d'entrée",
+        "description": "Envoyer des données au format JSON pour obtenir une prédiction.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Données d'entrée pour la prédiction",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Protocol": { "type": "number" },
+                "Flow Duration": { "type": "number" },
+                "Tot Fwd Pkts": { "type": "number" },
+                "Tot Bwd Pkts": { "type": "number" },
+                "TotLen Fwd Pkts": { "type": "number" },
+                "TotLen Bwd Pkts": { "type": "number" },
+                "Fwd Pkt Len Max": { "type": "number" },
+                "Fwd Pkt Len Min": { "type": "number" },
+                "Fwd Pkt Len Mean": { "type": "number" },
+                "Fwd Pkt Len Std": { "type": "number" },
+                "Bwd Pkt Len Max": { "type": "number" },
+                "Bwd Pkt Len Min": { "type": "number" },
+                "Bwd Pkt Len Mean": { "type": "number" },
+                "Bwd Pkt Len Std": { "type": "number" },
+                "Flow Byts/s": { "type": "number" },
+                "Flow Pkts/s": { "type": "number" },
+                "Flow IAT Mean": { "type": "number" },
+                "Flow IAT Std": { "type": "number" },
+                "Flow IAT Max": { "type": "number" },
+                "Flow IAT Min": { "type": "number" },
+                "Fwd IAT Tot": { "type": "number" },
+                "Fwd IAT Mean": { "type": "number" },
+                "Fwd IAT Std": { "type": "number" },
+                "Fwd IAT Max": { "type": "number" },
+                "Fwd IAT Min": { "type": "number" },
+                "Bwd IAT Tot": { "type": "number" },
+                "Bwd IAT Mean": { "type": "number" },
+                "Bwd IAT Std": { "type": "number" },
+                "Bwd IAT Max": { "type": "number" },
+                "Bwd IAT Min": { "type": "number" },
+                "Fwd PSH Flags": { "type": "number" },
+                "Bwd PSH Flags": { "type": "number" },
+                "Fwd URG Flags": { "type": "number" },
+                "Bwd URG Flags": { "type": "number" },
+                "Fwd Header Len": { "type": "number" },
+                "Bwd Header Len": { "type": "number" },
+                "Fwd Pkts/s": { "type": "number" },
+                "Bwd Pkts/s": { "type": "number" },
+                "Pkt Len Min": { "type": "number" },
+                "Pkt Len Max": { "type": "number" },
+                "Pkt Len Mean": { "type": "number" },
+                "Pkt Len Std": { "type": "number" },
+                "Pkt Len Var": { "type": "number" },
+                "FIN Flag Cnt": { "type": "number" },
+                "SYN Flag Cnt": { "type": "number" },
+                "RST Flag Cnt": { "type": "number" },
+                "PSH Flag Cnt": { "type": "number" },
+                "ACK Flag Cnt": { "type": "number" },
+                "URG Flag Cnt": { "type": "number" },
+                "CWE Flag Count": { "type": "number" },
+                "ECE Flag Cnt": { "type": "number" },
+                "Down/Up Ratio": { "type": "number" },
+                "Pkt Size Avg": { "type": "number" },
+                "Fwd Seg Size Avg": { "type": "number" },
+                "Bwd Seg Size Avg": { "type": "number" },
+                "Fwd Byts/b Avg": { "type": "number" },
+                "Fwd Pkts/b Avg": { "type": "number" },
+                "Fwd Blk Rate Avg": { "type": "number" },
+                "Bwd Byts/b Avg": { "type": "number" },
+                "Bwd Pkts/b Avg": { "type": "number" },
+                "Bwd Blk Rate Avg": { "type": "number" },
+                "Subflow Fwd Pkts": { "type": "number" },
+                "Subflow Fwd Byts": { "type": "number" },
+                "Subflow Bwd Pkts": { "type": "number" },
+                "Subflow Bwd Byts": { "type": "number" },
+                "Init Fwd Win Byts": { "type": "number" },
+                "Init Bwd Win Byts": { "type": "number" },
+                "Fwd Act Data Pkts": { "type": "number" },
+                "Fwd Seg Size Min": { "type": "number" },
+                "Active Mean": { "type": "number" },
+                "Active Std": { "type": "number" },
+                "Active Max": { "type": "number" },
+                "Active Min": { "type": "number" },
+                "Idle Mean": { "type": "number" },
+                "Idle Std": { "type": "number" },
+                "Idle Max": { "type": "number" },
+                "Idle Min": { "type": "number" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prédiction réalisée avec succès",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "prediction": {
+                  "type": "string",
+                  "enum": ["menace", "clean"],
+                  "description": "Le résultat de la prédiction : 'clean' ou 'menace'"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
